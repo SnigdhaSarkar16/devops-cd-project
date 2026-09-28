@@ -44,11 +44,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/devops-cd-demo:latest
-            ghcr.io/${{ github.repository_owner }}/devops-cd-demo:${{ github.sha }}
+         - name: Make owner name lowercase
+           run: echo "OWNER=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_ENV
+
+         - name: Build and push Docker image
+           uses: docker/build-push-action@v6
+           with:
+             context: .
+             push: true
+             tags: |
+               ghcr.io/${{ env.OWNER }}/devops-cd-demo:latest
+               ghcr.io/${{ env.OWNER }}/devops-cd-demo:${{ github.sha }}
