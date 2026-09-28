@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 
 app = Flask(__name__)
 
@@ -9,12 +9,24 @@ def add(a, b):
 
 @app.route("/")
 def home():
-    return jsonify(message="Hello from my CD pipeline!", status="running")
+    return render_template("index.html")
 
 
 @app.route("/health")
 def health():
     return jsonify(status="ok")
+
+
+@app.route("/api/status")
+def status():
+    return jsonify(
+        application="Flask Web App",
+        version="1.0",
+        ci_cd="GitHub Actions",
+        testing="PyTest",
+        container="Docker",
+        status="running"
+    )
 
 
 @app.route("/add/<int:a>/<int:b>")
