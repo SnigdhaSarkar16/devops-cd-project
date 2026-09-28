@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps CI/CD Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="badge">
+            DEVOPS PROJECT
+        </div>
+
+        <h1>Automated CI/CD Pipeline</h1>
+
+        <p class="subtitle">
+            Flask Web Application powered by GitHub Actions
+        </p>
+
+        <div class="card">
+
+            <div class="status">
+                <span class="dot"></span>
+                Application Running
+            </div>
+
+            <div class="grid">
+
+                <div class="item">
+                    <span>Application</span>
+                    <strong>Flask Web App</strong>
+                </div>
+
+                <div class="item">
+                    <span>CI/CD</span>
+                    <strong>GitHub Actions</strong>
+                </div>
+
+                <div class="item">
+                    <span>Testing</span>
+                    <strong>PyTest</strong>
+                </div>
+
+                <div class="item">
+                    <span>Container</span>
+                    <strong>Docker</strong>
+                </div>
+
+                <div class="item">
+                    <span>Version</span>
+                    <strong>1.0</strong>
+                </div>
+
+                <div class="item">
+                    <span>Health</span>
+                    <strong>Healthy</strong>
+                </div>
+
+            </div>
+
+            <h2>CI/CD Pipeline</h2>
+
+            <div class="pipeline">
+
+                <div class="step">
+                    <b>01</b>
+                    <span>Git Push</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">
+                    <b>02</b>
+                    <span>PyTest</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">
+                    <b>03</b>
+                    <span>Docker Build</span>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="step">
+                    <b>04</b>
+                    <span>Publish</span>
+                </div>
+
+            </div>
+
+            <a href="/health" class="button">
+                Check Health API
+            </a>
+
+        </div>
+
+        <p class="footer">
+            ITMP / DevOps Project
+        </p>
+
+    </div>
+
+</body>
+</html>
